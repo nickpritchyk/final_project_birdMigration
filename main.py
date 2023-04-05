@@ -4,6 +4,18 @@ import numpy as np
 import random
 import pylab
 
+class Region:
+    def __init__(self, name, zone, temperature):
+        self.name = name
+        self.zone = zone
+        self.temp = temperature
+class Bird:
+    def __init__(self, name, probability):
+        self.name = name
+        self.prob = probability
+    def update_prob(self, prob):
+        self.prob = prob
+
 time_steps = 100000
 temperature = []
 greenhouse_gases_ranges = []
@@ -16,20 +28,10 @@ def calculateMigrationLikeness():
 
 def migrate():
     print('Starting Migration...')
+    sandpiper = Bird("sandpiper", 20)
+    print(sandpiper)
 
-    for i in range(0, location.length()):
-
-        for i in range(0, time_steps):
-            for j in range(0, species.length()):
-                if(i == location[0]):
-                    print("First Migration Path")
-                    calculateMigrationLikeness()
-                if(i == location[1]):
-                    print("Second Migration Path")
-                    calculateMigrationLikeness()
-                if(i == location[2]):
-                    print("Third Migration Path")
-                    calculateMigrationLikeness()
+    
 
 
 migrate()
